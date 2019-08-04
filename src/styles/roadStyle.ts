@@ -5,8 +5,9 @@ import RenderFeature from 'ol/render/Feature';
 export default function roadStyle(feature: RenderFeature, resolution: number) {
   const { rnkWidth, rdCtg } = feature.getProperties();
   const width =
-    resolution > 50 ? 1 : 
-    rnkWidth === 0
+    resolution > 50
+      ? 1
+      : rnkWidth === 0
       ? 0.5
       : rnkWidth === 1
       ? 1
@@ -19,14 +20,14 @@ export default function roadStyle(feature: RenderFeature, resolution: number) {
       : 0;
   const color =
     rdCtg === 0
-      ? '#bbb'
+      ? '#999'
       : rdCtg === 1
-      ? '#ccc'
-      : rdCtg === 2
-      ? '#ddd'
-      : rdCtg === 3
       ? '#aaa'
-      : '#ddd';
+      : rdCtg === 2
+      ? '#ccc'
+      : rdCtg === 3
+      ? '#888'
+      : '#ccc';
   const zIndex =
     rdCtg === 0 ? 9 : rdCtg === 1 ? 8 : rdCtg === 2 ? 2 : rdCtg === 3 ? 10 : 1;
 

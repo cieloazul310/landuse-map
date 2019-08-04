@@ -6,13 +6,27 @@ import vtstyle from '../styles/vtstyle';
 const vt = new VectorTileLayer({
   source: new VectorTileSource({
     format: new MVTFormat({
-      layers: ['river', 'coastline', 'lake', 'waterarea', 'road', 'railway', 'label', 'contour', 'building', 'boundary', 'searoute'],
+      layers: [
+        'river',
+        'coastline',
+        'lake',
+        'waterarea',
+        'road',
+        'railway',
+        'label',
+        'building',
+        'boundary',
+        'symbol',
+        'searoute',
+        'contour'
+      ],
     }),
     url:
       'https://cyberjapandata.gsi.go.jp/xyz/experimental_bvmap/{z}/{x}/{y}.pbf',
     attributions: [
-      '<a href="" target="_blank" rel=”noopener noreferrer”>国土地理院</a>',
+      '<a href="https://github.com/gsi-cyberjapan/gsimaps-vector-experiment" target="_blank" rel=”noopener noreferrer”>国土地理院</a>',
     ],
+    cacheSize: window.innerWidth < 600 ? 8 : 32
   }),
   declutter: true,
   style: vtstyle,
